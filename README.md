@@ -20,7 +20,7 @@ The EOS BFT-DPoS in general works in following steps:
    * When receives a new block confirmation from a producer, if this block confirms a sequence of blocks, the first 1/3 of the ```validated``` blocks become ```irreversible```
 7. If the current round is scheduled for a producer, she makes a block and broadcast it immediately. The block sate is then ```complete```
    * The producer at the end of a schedule proposes a new schedule to the block
-8. A system contract is responsible for vote new producers
+8. A system contract is responsible for voting new producers
    * The schedule_producer_function is executed when a producer is starting a new block
    * The system contract modifies the ```global_state```, which is a subset of the state of the virtual machine
    * The producer validates the block based on the ```global_state```
