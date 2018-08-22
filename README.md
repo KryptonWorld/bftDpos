@@ -18,6 +18,7 @@ The EOS BFT-DPoS in general works in following steps:
    * Note that when a producer signs a block, she also confirms the whole chain that with this block as a header. For instance, if she confirms block 100, and confirms block 200, then she also confirms all the blocks between 100 and 200. In the EOS system, every producer confirms all the blocks before his producing cycle and put the number of blocks confirmed in the block header. A producer never double confirms a block
    * When receives a new block confirmation from a producer, if this block confirms a sequence of blocks from his last confirmed one, the first 1/3 of the ```validated``` blocks become ```DPOS-irreversible```
    * A block is ```irreversible``` if either it is ```BFT-irreversible``` or ```DPOS-irreversible```
+   * **Currently, EOS only updates DPOS-irreversibility**
 7. If the current round is scheduled for a producer, she makes a block and broadcast it immediately. The block sate is then ```complete```
    * The producer updates the new elected producers every one minute
    * If the producers change, then the producer propose a new schedule
