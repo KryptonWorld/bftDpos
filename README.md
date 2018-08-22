@@ -8,10 +8,10 @@ The EOS BFT-DPoS in general works in following steps:
 2. Randomly shuffle these producers to schedule the order of each of them to produce blocks
 3. Each producer produces 6 blocks in her round
 4. A block is always produced at some prefixed time stamp, i.e., every 0.5 second
-5. If the current round is scheduled for a producer, she make a block and broadcast it immediately. The block sate is then ```complete```.
+5. If the current round is scheduled for a producer, she make a block and broadcast it immediately. The block sate is then ```complete```
 6. If a producer receives a block, which is a ```complete``` block, she does the following
-   * There are four possible states of a block ```invalid```, ```complete```, ```validated```, ```irreversible```
-   * If she finds the block ```invalid```, she can discard it
+   * There are four possible states of a block ```incomplete```, ```complete```, ```validated```, ```irreversible```
+   * If she finds the block invalid or with state ```incomplete```, she can discard it
    * She then resolves possible forks, i.e., there might be ambiguous blocks of the same timestamp. She chooses the block that completes the longest chain
    * If the block she receives is already in her database, she can discard it
    * She then sign the block header and broadcast block header and its signature (this is a confirmation of the block)
