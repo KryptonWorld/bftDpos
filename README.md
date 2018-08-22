@@ -26,4 +26,4 @@ The EOS BFT-DPoS in general works in following steps:
    * The producer validates the block based on the ```global_state```
 
 
-The above procedure effective implements the two-message BFT system. For instance, each block is confirmed if it receives two message from a producer who confirms it directly or indirectly. Irreverisbility requires least 2/3 producers' confirmation. This is BFT.
+The above procedure effective implements the two-message BFT system. For instance, each block is confirmed if it receives two messages from a producer who confirms it directly or indirectly. Irreverisbility requires at least 2/3 producers' confirmations. This is BFT.
