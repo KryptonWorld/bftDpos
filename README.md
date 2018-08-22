@@ -16,7 +16,7 @@ The EOS BFT-DPoS in general works in following steps:
    * She then sign the block header and broadcast block header and its signature (this is a confirmation of the block)
 6. If a producer receives a confirmation of a block header,  
    * If the block sate is ```complete``` and the number of signatures is greater than ```2*21/3+1```, she promote the block to state ```validated```
-   * Note that when a producer signs a block, she also confirms the chain from the last block she confirms. For instance, if she confirms block 100, and confirms block 200, then she also confirms all the blocks between 100 and 200. In the EOS system, every producer confirms all the blocks before his producing cycle and put the number of blocks confirmed in the block header. 
+   * Note that when a producer signs a block, she also confirms the whole chain that with this block as a header. For instance, if she confirms block 100, and confirms block 200, then she also confirms all the blocks between 100 and 200. In the EOS system, every producer confirms all the blocks before his producing cycle and put the number of blocks confirmed in the block header. A producer never double confirms a block
    * When receives a new block confirmation from a producer, if this block confirms a sequence of blocks, the first 1/3 of the ```validated``` blocks become ```irreversible```
 7. If the current round is scheduled for a producer, she makes a block and broadcast it immediately. The block sate is then ```complete```
    * The producer at the end of a schedule proposes a new schedule to the block
