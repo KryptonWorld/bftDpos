@@ -10,14 +10,14 @@ The EOS BFT-DPoS in general works in following steps:
 4. A block is always produced at some prefixed time stamp, i.e., every 0.5 second
 5. If the current round is scheduled for a producer, she make a block and broadcast it immediately. The block sate is then ```complete```.
 6. If a producer receives a block, which is a ```complete``` block, she does the following
-   * There are four possible states of a block ```invalid```, ```complete```, ```validated```, ```irreversable```
+   * There are four possible states of a block ```invalid```, ```complete```, ```validated```, ```irreversible```
    * If she finds the block ```invalid```, she can discard it
    * She then resolves possible forks, i.e., there might be ambiguous blocks of the same timestamp. She chooses the block that completes the longest chain
    * If the block she receives is already in her database, she can discard it
    * She then sign the block header and broadcast block header and its signature (this is a confirmation of the block)
 7. If a producer receives a confirmation of a block header,  
    * If the block sate is ```complete``` and the number of signatures is greater than ```2*21/3+1```, she promote the block to state ```validated```
-   * If the block sate is ```validate``` and the number of signatures is greater than ```2*21/3+1```, she promote the block to state ```irreversable```, she needs to resolve possible forks as well
+   * If the block sate is ```validate``` and the number of signatures is greater than ```2*21/3+1```, she promote the block to state ```irreversible```, she needs to resolve possible forks as well
 7. The producer at the end of a schedule proposes a new schedule to the block
 8. A system contract is responsible for vote new producers
    * The schedule_producer_function is executed when a producer is starting a new block
