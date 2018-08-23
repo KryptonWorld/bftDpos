@@ -34,6 +34,6 @@ The EOS BFT-DPoS in general works in following steps:
    * If the producers change, then the producer propose a new schedule
    * A new schedule takes effect after the block proposing it becomes ```DPOS-irreversible``` (the position is fixed!)
 8. A system contract is responsible for voting new producers
-   * The schedule_producer_function is executed when a producer is starting a new block
+   * The schedule_producer_function is executed when a producer is starting a new block (by generating a transaction)
    * The system contract modifies the ```global_state```, which is a subset of the state of the virtual machine
    * The producer validates the block based on the ```global_state```
