@@ -1,7 +1,7 @@
 # BFT-DPoS
 
-Lin F. Yang
-08/23/2018
+-- Lin F. Yang
+-- 08/23/2018
 
 ## Overview
 
