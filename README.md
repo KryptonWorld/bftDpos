@@ -25,7 +25,7 @@ The EOS BFT-DPoS in general works in following steps:
    * If she finds the block invalid or with state ```incomplete```, she can discard it
    * She then resolves possible forks, i.e., there might be ambiguous blocks of the same timestamp. She chooses the block that completes the longest chain
    * If the block she receives is already in her database, she can discard it
-   * She then sign the block header and broadcast block header and its signature (this is a confirmation of the block)
+   * She then signs the block header and broadcasts block header and its signature (this is a confirmation of the block)
 6. If a producer receives a confirmation of a block header,  
    * If the block sate is ```complete``` and the number of signatures is greater than ```2*21/3+1```, she promote the block to state ```BFT-irreversible```
    * Note that when a producer signs a block, she also confirms the whole chain that with this block as a header. For instance, if she produces block 100, and produce block 200, then she also confirms all the blocks from 100 to 200 (not including 200). In the EOS system, every producer confirms all the blocks before his producing cycle and put the number of blocks confirmed in the block header. A producer never double confirms a block
