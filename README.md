@@ -2,6 +2,8 @@
 
 ## Over View
 
+There are two concensus scheme used in the paper. One is the usual **BFT-DPOS** and the other is the **Real-Time BFT**. For the **BFT-DPOS**, the general idea is to have at least 2/3 producers confirming **twice** (directly or indirectly) on a block before it is *irreversible*.  As Vtalik stated, BFT is generally not achievable if a producer confiming it once. The **Real-Time BFT** is obtained by collecting confirmations on each produced block independently. Collecting more than 2/3 confirmations on a block can be done in parallel and thus only take time of a single round trip communication, which can be done in 0.5 seconds.
+
 The EOS BFT-DPoS in general works in following steps:
 
 1. Initialize with 21 block producers
