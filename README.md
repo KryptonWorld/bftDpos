@@ -1,9 +1,7 @@
 # BFT-DPoS
 
----
-author: Lin F. Yang
-date: today
----
+% Lin F. Yang
+% 08/23/2018
 
 ## Over View
 
