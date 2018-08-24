@@ -53,7 +53,7 @@ The EOS BFT-DPoS in general works in following steps:
        A producer cannot confirm "this" block, only prior blocks.
     * ```schedule_version``` the producer schedule version that validates this block. This is used to
        indicate that the prior block which included new_producers->version has been marked
-       irreversible and that it the new producer schedule takes effect this block. 
+       irreversible and that the new producer schedule takes effect this block. 
     * ```new_producers``` schedule of new producers. This is optional, adding this if only new producers are scheduled. 
        If this is empty, then the schedule is still the current version. The ```new_producers``` is a schedule type 
        which includes a vector of producers and the version number. 
