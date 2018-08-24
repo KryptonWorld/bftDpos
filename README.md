@@ -44,3 +44,17 @@ The EOS BFT-DPoS in general works in following steps:
    
 ## Suggestions for implementation on ETH
 
+1. What is stored in the blockheader?
+    * ```confirmed``` the number of blocks this block confirms.  
+       By signing this block this producer is confirming blocks ```[block_num() - confirmed, blocknum())``` 
+       as being the best blocks for that range and that he has not signed any other statements that would contradict. 
+       No producer should sign a block with overlapping ranges or it is proof of byzantine behavior. 
+       When producing a block a producer is always confirming at least the block he is building off of.  
+       A producer cannot confirm "this" block, only prior blocks.
+    * ```schedule_version``` the producer schedule version that validates this block. This is used to
+       indicate that the prior block which included new_producers->version has been marked
+       irreversible and that it the new producer schedule takes effect this block. 
+    * ```new_producers``` schedule of new producers. This is optional, adding this if only new producers are scheduled. 
+       If this is empty, then the schedule is still the current version. The ```new_producers``` is a schedule type 
+       which includes a vector of producers and the version number. 
+       The new_producers take effect once this block become ```DPoS-irreversible```.
