@@ -42,7 +42,7 @@ The EOS BFT-DPoS in general works in following steps:
    * Another producer validates the block based on the ```global_state```
    
    
-## Suggestions for implementation on ETH
+## Suggestions for implementation on KETH
 
 1. What is stored in the blockheader?
     * ```confirmed``` the number of blocks this block confirms.  
