@@ -58,3 +58,16 @@ The EOS BFT-DPoS in general works in following steps:
        If this is empty, then the schedule is still the current version. The ```new_producers``` is a schedule type 
        which includes a vector of producers and the version number. 
        The new_producers take effect once this block become ```DPoS-irreversible```.
+2. What is stored in the system contract?
+    * the producer candidates
+    * the voters
+    * the votes of each voter
+    * the current schedule
+3. What does the system contract do?
+    * it is been called every one minute
+    * it propose a new schedule to if the voted producers change, the schedule will be proposed to the block header
+4. How to validate a block?
+    * check whether the ```schedule_version``` matches the schedule in the latest prior DPoS-irreversible block that contains ```new_producers```
+    * check whether the producer is the asigned one of the ```schedule_version```
+    * run system contract ```on_block``` action (which proposes new schedule), and it is valid
+    * check all the transactions
