@@ -40,3 +40,7 @@ The EOS BFT-DPoS in general works in following steps:
    * The schedule_producer_function is executed when a producer is starting a new block (by generating a transaction)
    * The system contract modifies the ```global_state```, which is a subset of the state of the virtual machine
    * Another producer validates the block based on the ```global_state```
+   
+   
+## Suggestions for implementation on ETH
+
